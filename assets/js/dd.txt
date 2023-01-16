@@ -1,0 +1,42 @@
+javascript code
+/*=============== FILTERS TABS ===============*/
+const tabs = document.querySelectorAll('[data-target]'),
+      tabContents = document.querySelectorAll('[data-content]')
+
+tabs.forEach(tab =>{
+    tab.addEventListener('click', () =>{
+        const target = document.querySelector(tab.dataset.target)
+
+        tabContents.forEach(tc =>{
+            tc.classList.remove('filters__active')
+        })
+        target.classList.add('filters__active')
+
+        tabs.forEach(t =>{
+            t.classList.remove('filter-tab-active')
+        })
+        tab.classList.add('filter-tab-active')
+    })
+})
+
+HTML code
+ <section class="filters container">
+                <!--======================= FILTERS TABS =====================-->
+                
+                <ul class="filters__content">
+                    <button class="filters__button filter-tab-active" data-target="#projects">
+                        Projects
+                    </button>
+                    <button class="filters__button" data-target="#skills">
+                        Skills
+                    </button>
+                </ul>
+
+                <div class="filters__sections">
+                    <!--Section of my projects and Skills -->
+                    <!--=========================== PROJECTS ====================-->
+                    <div class="projects__content grid filters__active" data-content id="projects">
+                    </div>
+                    <div class="skills__content grid filters__active" data-content id="skills">
+                    </div>
+                </div>
